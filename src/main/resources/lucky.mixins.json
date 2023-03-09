@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "de.hglabor.lucky.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "loot.LootPoolMixin",
+    "loot.accessor.LeafEntryAccessor",
+    "loot.condition.RandomChanceWithLootConditionMixin",
+    "loot.entry.ChoiceMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
