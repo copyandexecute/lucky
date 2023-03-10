@@ -38,17 +38,16 @@ object Lucky : ModInitializer {
                     })
                     isActive = true
                     val server = this.source.server
-                    jobs += infiniteMcCoroutineTask(period = 1.minutes) {
+                    jobs += infiniteMcCoroutineTask(period = 1.seconds) {
                         server.players.forEach {
-                            val luckInstance = it.attributes.getCustomInstance(EntityAttributes.GENERIC_LUCK) ?: return@forEach
-                            luckInstance.baseValue += 15.0
+                            val luckInstance =
+                                it.attributes.getCustomInstance(EntityAttributes.GENERIC_LUCK) ?: return@forEach
+                            luckInstance.baseValue += 0.25
                         }
                     }
                     jobs += infiniteMcCoroutineTask(sync = false) {
                         server.players.forEach {
-                            it.sendMessage(literalText("Glück ${it.luck}") {
-                                color = LUCK_COLOR
-                            }, true)
+                            it.sendMessage(getProgressBar(it.luck.toInt(), 1024, LUCK_COLOR, 0x5c6066), true)
                         }
                     }
                 }
