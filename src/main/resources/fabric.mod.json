@@ -30,7 +30,8 @@
     "fabric": "*",
     "minecraft": "1.19.x",
     "java": ">=17",
-    "fabric-language-kotlin": ">=1.9.0+kotlin.1.8.0"
+    "fabric-language-kotlin": ">=1.9.0+kotlin.1.8.0",
+    "silkmc": "*"
   },
   "suggests": {
     "another-mod": "*"
